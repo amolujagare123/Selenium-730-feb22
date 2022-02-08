@@ -22,9 +22,9 @@ public class FindElementsDemo {
 
         List<WebElement> wbList = driver.findElements(By.tagName("input"));
 
-        System.out.println(wbList.size());
+        System.out.println(wbList.size()); //3
 
-        wbList.get(0).sendKeys("admin");
+        wbList.get(0).sendKeys("admin"); // username
         wbList.get(1).sendKeys("admin");
         wbList.get(2).click();
 
