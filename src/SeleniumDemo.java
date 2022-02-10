@@ -20,6 +20,9 @@ public class SeleniumDemo {
         WebDriver driver = new OperaDriver();*/
 
         System.setProperty("webdriver.edge.driver","Drivers/msedgedriver.exe");
+        System.setProperty("webdriver.edge.driver","D:\\Study\\Selenium-730-feb22\\Drivers\\msedgedriver.exe");
+
+
         WebDriver driver = new EdgeDriver();
 
         driver.manage().window().maximize();
