@@ -1,0 +1,18 @@
+<suite name="Project name">
+
+    <test name="module 1">
+        <classes>
+            <class name="TestNGDemo.Demo.ClassOne"/>
+            <class name="TestNGDemo.Demo.ClassTwo"/>
+            <class name="TestNGDemo.Demo.BeoreAfterClass"/>
+        </classes>
+
+    </test>
+
+    <test name="module 2">
+        <classes>
+            <class name="TestNGDemo.Demo.ClassThree"/>
+        </classes>
+    </test>
+
+</suite>

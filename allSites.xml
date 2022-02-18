@@ -1,0 +1,24 @@
+<suite name ="All sites">
+    <test name="career">
+        <classes>
+            <class name="TestNGDemo.AllSites.JobSites">
+                <methods>
+                   <!-- <exclude name="monster"/>
+                    <exclude name="naukri"/>-->
+                    <include name="naukri"/>
+                </methods>
+
+            </class>
+
+
+
+            <class name="TestNGDemo.AllSites.TutorialsSite"/>
+        </classes>
+    </test>
+    <test name="social">
+        <classes>
+        <class name="TestNGDemo.AllSites.SocialSites"/>
+        </classes>
+    </test>
+
+</suite>

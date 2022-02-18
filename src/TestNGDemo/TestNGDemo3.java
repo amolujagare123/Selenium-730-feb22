@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class TestNGDemo3 {
@@ -38,6 +39,8 @@ public class TestNGDemo3 {
 
         WebElement btnLogin = driver.findElement(By.xpath("//input[@value='LOG IN']"));
       //  btnLogin.click();
+
+
     }
 
     @Test
