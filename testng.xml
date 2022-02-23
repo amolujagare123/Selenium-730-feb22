@@ -1,5 +1,15 @@
 <suite name="Project name">
 
+   <!-- <groups>
+        <run>
+            <include name="email"/>
+        </run>
+    </groups>-->
+
+    <parameter name="myUrl" value="http://gmail.com"/>
+    <parameter name="username" value="user-2"/>
+    <parameter name="password" value="pass-2"/>
+
     <test name="module 1">
         <classes>
             <class name="TestNGDemo.Demo.ClassOne"/>

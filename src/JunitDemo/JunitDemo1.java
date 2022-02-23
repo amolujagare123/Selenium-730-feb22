@@ -2,6 +2,7 @@ package JunitDemo;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,12 @@ public class JunitDemo1 {
 
         WebElement btnLogin = driver.findElement(By.xpath("//input[@value='LOG IN']"));
         btnLogin.click();
+
+        String expected = "POSNIC - Dashboard";
+        String actual = driver.getTitle();
+
+        // Junit assert
+        Assert.assertEquals("this is not a dashboard",expected,actual);
     }
 
     @Test

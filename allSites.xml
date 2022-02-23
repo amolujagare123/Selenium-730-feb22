@@ -1,11 +1,22 @@
 <suite name ="All sites">
+
+   <!-- <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter2" />
+    </listeners>
+-->
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+
     <test name="career">
         <classes>
             <class name="TestNGDemo.AllSites.JobSites">
                 <methods>
                    <!-- <exclude name="monster"/>
                     <exclude name="naukri"/>-->
-                    <include name="naukri"/>
+                    <exclude name="monster"/>
                 </methods>
 
             </class>
