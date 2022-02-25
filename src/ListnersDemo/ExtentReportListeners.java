@@ -1,14 +1,19 @@
 package ListnersDemo;
 
+import TestNGDemo.AllSites.OpenCloseBrowser;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import static ListnersDemo.util.ExtentInit.initExtentObject;
+import java.io.IOException;
 
-public class ExtentReportListeners implements ITestListener {
+import static ListnersDemo.util.ExtentInit.initExtentObject;
+import static ListnersDemo.util.ExtentInit.webScreenshotForListeners;
+
+public class ExtentReportListeners extends OpenCloseBrowser implements ITestListener {
 
     static ExtentReports extent;
     ExtentTest test;
@@ -28,6 +33,13 @@ public class ExtentReportListeners implements ITestListener {
         System.out.println("onTestFailure");
         test.info("This is fail");
         test.fail(result.getThrowable());
+
+        try {
+            test.addScreenCaptureFromPath("./screenshots/"+webScreenshotForListeners(driver));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

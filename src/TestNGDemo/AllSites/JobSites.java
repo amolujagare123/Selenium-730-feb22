@@ -7,23 +7,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class JobSites {
+public class JobSites extends OpenCloseBrowser{
 
-    WebDriver driver;
 
-    @BeforeClass // method written below this annotation will run before every test method
-    public void openBrowser()
-    {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-
-    @AfterClass // method written below this annotation will run after every test method
-    public void closeBrowser() throws InterruptedException {
-        Thread.sleep(2000);
-        driver.close();
-    }
 
     @Test
     public void naukri()

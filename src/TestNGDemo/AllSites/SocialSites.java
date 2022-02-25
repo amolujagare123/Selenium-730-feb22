@@ -8,36 +8,22 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class SocialSites {
+public class SocialSites extends OpenCloseBrowser{
 
-    WebDriver driver;
-
-    @BeforeClass // method written below this annotation will run before every test method
-    public void openBrowser()
-    {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-
-    @AfterClass // method written below this annotation will run after every test method
-    public void closeBrowser() throws InterruptedException {
-        Thread.sleep(2000);
-        driver.close();
-    }
 
 
     @Test (priority = 1)
     public void twitter()
     {
         driver.get("http://twitter.com");
-        Assert.assertEquals(true,false,"this test is failed");
+
     }
 
     @Test  (priority = 2)
     public void linkedIn()
     {
         driver.get("http://linkedIn.com");
+        Assert.assertEquals(true,false,"this test is failed");
     }
 
     @Test  (priority = 3)
