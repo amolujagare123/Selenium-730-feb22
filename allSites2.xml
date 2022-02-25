@@ -1,0 +1,27 @@
+<suite name ="All sites">
+<listeners>
+    <listener class-name="ListnersDemo.ExtentReportListeners"/>
+</listeners>
+
+
+    <test name="career">
+        <classes>
+            <class name="TestNGDemo.AllSites.JobSites">
+                <methods>
+                   <!-- <exclude name="monster"/>
+                    <exclude name="naukri"/>-->
+                    <exclude name="monster"/>
+                </methods>
+            </class>
+
+
+            <class name="TestNGDemo.AllSites.TutorialsSite"/>
+        </classes>
+    </test>
+    <test name="social">
+        <classes>
+        <class name="TestNGDemo.AllSites.SocialSites"/>
+        </classes>
+    </test>
+
+</suite>

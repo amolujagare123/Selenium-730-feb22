@@ -13,6 +13,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
+import static ExtentReportDemo.screenshotDemo.ScreenshotUtility.webScreenshot;
+
 public class ExtentReportDemo {
 
     ExtentReports extent;
@@ -43,8 +47,7 @@ public class ExtentReportDemo {
     }
 
     @Test
-    public void logintest1()
-    {
+    public void logintest1() throws IOException {
         ExtentTest test = extent.createTest("Valid Login Test");
 
         WebDriverManager.chromedriver().setup();
@@ -83,6 +86,7 @@ public class ExtentReportDemo {
         }
         catch (AssertionError e)
         {
+            test.addScreenCaptureFromPath("./screenshots/"+webScreenshot(driver));
             test.fail(e.getMessage());
         }
 
@@ -91,8 +95,7 @@ public class ExtentReportDemo {
     }
 
     @Test
-    public void logintest2()
-    {
+    public void logintest2() throws IOException {
         ExtentTest test = extent.createTest("inValid Login Test");
 
         WebDriverManager.chromedriver().setup();
@@ -129,7 +132,7 @@ public class ExtentReportDemo {
         }
         catch (Exception e)
         {
-
+            test.addScreenCaptureFromPath("./screenshots/"+webScreenshot(driver));
         }
 
         try {
@@ -139,12 +142,12 @@ public class ExtentReportDemo {
         catch (Exception e)
         {
             test.fail(e.getMessage());
+            test.addScreenCaptureFromPath("./screenshots/"+webScreenshot(driver));
         }
     }
 
     @Test
-    public void logintest3()
-    {
+    public void logintest3() throws IOException {
         ExtentTest test = extent.createTest("Blank Login Test");
 
         WebDriverManager.chromedriver().setup();
@@ -180,7 +183,7 @@ public class ExtentReportDemo {
         }
         catch (Exception e)
         {
-
+            test.addScreenCaptureFromPath("./screenshots/"+webScreenshot(driver));
         }
 
         try {
@@ -189,6 +192,7 @@ public class ExtentReportDemo {
         }
         catch (Exception e)
         {
+            test.addScreenCaptureFromPath("./screenshots/"+webScreenshot(driver));
             test.fail(e.getMessage());
         }
 
