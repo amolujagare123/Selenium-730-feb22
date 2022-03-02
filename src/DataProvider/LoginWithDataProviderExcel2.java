@@ -55,8 +55,9 @@ public class LoginWithDataProviderExcel2 {
         {
             HSSFRow row = sheet.getRow(i);
 
-            HSSFCell username = row.getCell(0);
+
            try {
+               HSSFCell username = row.getCell(0);
                 username.setCellType(CellType.STRING);
                 data[i][0] = username.getStringCellValue();
             }
@@ -65,8 +66,8 @@ public class LoginWithDataProviderExcel2 {
                data[i][0] ="";
            }
 
-            HSSFCell password = row.getCell(1);
             try {
+                HSSFCell password = row.getCell(1);
                 password.setCellType(CellType.STRING);
                 data[i][1] = password.getStringCellValue();
             }
