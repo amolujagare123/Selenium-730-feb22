@@ -24,6 +24,7 @@ public class SocialSites extends OpenCloseBrowser{
     {
         driver.get("http://linkedIn.com");
         Assert.assertEquals(true,false,"this test is failed");
+
     }
 
     @Test  (priority = 3)
