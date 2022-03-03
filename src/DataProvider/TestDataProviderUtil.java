@@ -1,11 +1,6 @@
 package DataProvider;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.CellType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,10 +9,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 
-public class DataProviderExcelAddCustomers2 {
+import static DataProvider.util.DataProviderUtil.getMyData;
+
+public class TestDataProviderUtil {
 
     WebDriver driver;
 
@@ -41,7 +37,7 @@ public class DataProviderExcelAddCustomers2 {
         btnLogin.click();
     }
 
-    @Test (dataProvider = "getData")
+    @Test(dataProvider = "getData")
     public void addCustomerTest(String name,String add,String con1,String con2)
     {
         WebElement lnkAddCustomer = driver.findElement(By.linkText("Add Customer"));
@@ -60,40 +56,14 @@ public class DataProviderExcelAddCustomers2 {
         txtContact2.sendKeys(con2);
 
         WebElement btnAdd = driver.findElement(By.name("Submit"));
-      //  btnAdd.click();
+        //  btnAdd.click();
 
     }
 
     @DataProvider
     public Object[][] getData() throws IOException {
-        FileInputStream fis = new FileInputStream("Data/LoginData.xls");
-       // HSSFWorkbook workbook = new HSSFWorkbook(fis);
-        HSSFWorkbook workbook = new HSSFWorkbook(fis);
-        HSSFSheet sheet = workbook.getSheet("Add Customer");
-        int rowCount = sheet.getPhysicalNumberOfRows();
 
-        int colCount = sheet.getRow(0).getLastCellNum();
+     return  getMyData("Data/LoginData.xls","Add Customer 2");
 
-        Object[][] data = new Object[rowCount-1][colCount];
-
-        for(int i=0;i<rowCount-1;i++)
-        {
-            HSSFRow row = sheet.getRow(i+1);
-
-            for(int j=0; j<colCount;j++) {
-
-                try {
-                    HSSFCell cell = row.getCell(j);
-                    cell.setCellType(CellType.STRING);
-                    data[i][j] = cell.getStringCellValue();
-
-                } catch (Exception e) {
-                    data[i][j] = "";
-                }
-
-            }
-        }
-        return data;
     }
-
 }
